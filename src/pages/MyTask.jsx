@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import editIcon from "../assets/Icons/edit_icon.png";
-import deleteIcon from "../assets/Icons/delete_icon.png";
+import editIcon from "../assets/icons/edit_icon.png";
+import deleteIcon from "../assets/icons/delete_icon.png";
 import { Link, useNavigate } from "react-router-dom";
 
 const MyTask = ({baseURL}) => {
