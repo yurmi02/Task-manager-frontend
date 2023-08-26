@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import editIcon from "../assets/Icons/edit_icon.png";
 import deleteIcon from "../assets/Icons/delete_icon.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const MyTask = ({baseURL}) => {
   const [data, setData] = useState(null);
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const getData = async () => {
@@ -16,6 +18,15 @@ const MyTask = ({baseURL}) => {
 
     getData();
   }, []);
+
+const deleteTask = async (id)=>{
+  const res = await Fetch(`${baseURL}/${id}`, {
+    method: "DELETE",
+  });
+  const data = await res.json();
+  console.log(data);
+  navigate(0)
+};
 
   return (
     <div className="container">
@@ -55,7 +66,9 @@ const MyTask = ({baseURL}) => {
                       <img src={editIcon} alt="edit-Icon" />
                       Edit
                     </Link>
-                    <button className="btn text-main-color border-main-color border-1 d-flex align-items-center gap-1">
+                    <button onClick={()=>{
+                      deleteTask(_id);
+                    }} className="btn text-main-color border-main-color border-1 d-flex align-items-center gap-1">
                       <img src={deleteIcon} alt="" />
                       Delete
                     </button>
