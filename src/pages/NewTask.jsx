@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import arrowleft from "../assets/Icons/arrow_left.png";
+import arrowleft from "../assets/icons/arrow_left.png";
 import Button from "../components/Button";
 
 const NewTask = ({ baseURL }) => {
